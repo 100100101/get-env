@@ -9,7 +9,7 @@
     "license": "ISC",
     "dependencies": {
         "@types/node": "^20.8.7",
-        "typescript": "^5.2.2",
-        "package-auto-tsc": "git+https://github.com/100100101/package-auto-tsc.git"
+        "package-auto-tsc": "github:100100101/package-auto-tsc",
+        "typescript": "^5.2.2"
     }
 }

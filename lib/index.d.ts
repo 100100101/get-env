@@ -1,3 +1,3 @@
-import { TProxyEnv } from '../types';
-declare const proxyEnv: TProxyEnv;
-export default proxyEnv;
+type TGetEnv = (key: string, isFormat?: boolean) => string | number | boolean;
+export declare const getEnv: TGetEnv;
+export {};
