@@ -4,32 +4,34 @@ export const getEnv: TGetEnv = (key, isFormat = true) => {
     if (envValue === undefined)
         throw new Error(`process.env is not contain '${key}'`)
 
-    if (!isFormat) return envValue
+    if (!isFormat)
+        return envValue
 
     if (envValue === 'true') {
         return true
-    } else if (envValue === 'false') {
+    }
+    else if (envValue === 'false') {
         return false
     }
     const envValueConvertedToString = envValue.toString()
-    const envValueConvertedToFloat = parseFloat(envValueConvertedToString)
+    const envValueConvertedToFloat = Number.parseFloat(envValueConvertedToString)
     const envValueConvertedToFloatString = envValueConvertedToFloat.toString()
 
     if (
-        envValueConvertedToFloat &&
-        envValueConvertedToString.length ===
-            envValueConvertedToFloatString.length
+        envValueConvertedToFloat
+        && envValueConvertedToString.length
+        === envValueConvertedToFloatString.length
     ) {
         return envValueConvertedToFloat
     }
 
-    const envValueConvertedToInt = parseInt(envValueConvertedToString)
+    const envValueConvertedToInt = Number.parseInt(envValueConvertedToString)
     const envValueConvertedToIntString = envValueConvertedToInt.toString()
 
     if (
         // envValueConvertedToInt ??
-        (envValueConvertedToInt || envValueConvertedToInt === 0) &&
-        envValueConvertedToString.length === envValueConvertedToIntString.length
+        (envValueConvertedToInt || envValueConvertedToInt === 0)
+        && envValueConvertedToString.length === envValueConvertedToIntString.length
     ) {
         return envValueConvertedToInt
     }
